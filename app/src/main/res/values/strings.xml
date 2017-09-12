@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Puzzle schaf170</string>
     <string name="start_puzzle">Start Puzzle</string>
+    <string name="welcome_message">Welcome to Andrew\'s Puzzle</string>
 </resources>
