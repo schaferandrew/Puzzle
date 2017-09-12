@@ -12,20 +12,29 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="5"
+        android:padding="20dp"
         app:srcCompat="@drawable/sparty" />
 
-    <Button
-        android:id="@+id/button3"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="@string/start_puzzle" />
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/buttonStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0"
+            android:text="@string/start_puzzle" />
+    </FrameLayout>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textWelcome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.21"
+        android:gravity="center"
+        android:layout_weight="1"
         android:text="@string/welcome_message" />
 
 </LinearLayout>
