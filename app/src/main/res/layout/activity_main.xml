@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="5"
+        android:contentDescription="@string/solved_puzzle"
         android:padding="20dp"
         app:srcCompat="@drawable/sparty" />
 
@@ -25,7 +26,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_weight="0"
             android:text="@string/start_puzzle" />
     </FrameLayout>
 
