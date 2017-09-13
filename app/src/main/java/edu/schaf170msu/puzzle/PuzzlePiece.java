@@ -20,12 +20,12 @@ public class PuzzlePiece {
      * We use relative x locations in the range 0-1 for the center
      * of the puzzle piece.
      */
-    private float x = 0f;
+    private float x = .26f;
 
     /**
      * y location
      */
-    private float y = 0f;
+    private float y = .24f;
 
     /**
      * x location when the puzzle is solved
