@@ -79,6 +79,13 @@ public class Puzzle {
         canvas.drawRect(marginX, marginY,
                 marginX + puzzleSize, marginY + puzzleSize, fillPaint);
 
+        outlinePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        outlinePaint.setColor(0xff00ff00);
+        canvas.drawLine(marginX, marginY, puzzleSize + marginX, marginY, outlinePaint);
+        canvas.drawLine(marginX,marginY, marginX, marginY + puzzleSize, outlinePaint);
+        canvas.drawLine(marginX, marginY + puzzleSize, marginX + puzzleSize, marginY + puzzleSize, outlinePaint);
+        canvas.drawLine(marginX + puzzleSize, marginY, marginX + puzzleSize, marginY + puzzleSize, outlinePaint);
+
         float scaleFactor = (float)puzzleSize /
                 (float)puzzleComplete.getWidth();
 
