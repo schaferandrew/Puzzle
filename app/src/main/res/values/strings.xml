@@ -3,4 +3,6 @@
     <string name="start_puzzle">Start Puzzle</string>
     <string name="welcome_message">Welcome to Andrew\'s Puzzle</string>
     <string name="solved_puzzle">Picture of the Solved Puzzle</string>
+    <string name="hurrah">Hurrah!!!</string>
+    <string name="completed_puzzle">You have completed the puzzle!</string>
 </resources>
