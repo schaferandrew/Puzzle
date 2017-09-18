@@ -128,6 +128,9 @@ public class PuzzlePiece {
             snapStatus = true;
             return true;
         }
+        else {
+            snapStatus = false;
+        }
 
         return false;
     }
