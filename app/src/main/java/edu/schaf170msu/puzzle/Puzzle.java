@@ -11,6 +11,8 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 /**
  * Created by Andrew on 9/11/17.
@@ -85,6 +87,10 @@ public class Puzzle {
      * this distance.
      */
     final static float SNAP_DISTANCE = 0.05f;
+
+    /**
+     * Temporary piece for swapping
+     */
 
     public Puzzle(Context context) {
         // Create paint for filling the area the puzzle will
@@ -211,6 +217,10 @@ public class Puzzle {
                 dragging = pieces.get(p);
                 lastRelX = x;
                 lastRelY = y;
+//                PuzzlePiece temp = pieces.get(p);
+//                pieces.set(p, pieces.get(0));
+//                pieces.set(0,temp);
+                Collections.swap(pieces, pieces.size()-1, p);
                 return true;
             }
         }
@@ -229,6 +239,9 @@ public class Puzzle {
         if(dragging != null) {
             if(dragging.maybeSnap()){
                 view.invalidate();
+                //Collections.swap(pieces, 0, pieces.indexOf(dragging));
+                pieces.remove(pieces.indexOf(dragging));
+                pieces.add(0,dragging);
                 if(isDone()) {
                     // The puzzle is done
                     Log.i("Puzzle", "Puzzle complete");
