@@ -5,6 +5,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 
+import java.util.Random;
+
 import static edu.schaf170msu.puzzle.Puzzle.SNAP_DISTANCE;
 
 /**
@@ -44,9 +46,24 @@ public class PuzzlePiece {
      */
     private boolean snapStatus = false;
 
+    /**
+     * The puzzle piece ID
+     */
+    private int id;
+
+
+    public void setX(float x) {
+        this.x = x;
+    }
+
+    public void setY(float y) {
+        this.y = y;
+    }
+
     public PuzzlePiece(Context context, int id, float finalX, float finalY) {
         this.finalX = finalX;
         this.finalY = finalY;
+        this.id = id;
 
         piece = BitmapFactory.decodeResource(context.getResources(), id);
     }
@@ -141,5 +158,26 @@ public class PuzzlePiece {
      */
     public boolean isSnapped() {
         return snapStatus;
+    }
+
+    public float getX() {
+        return x;
+    }
+
+    public float getY() {
+        return y;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * Shuffle the location of this piece
+     * @param rand A random number generator
+     */
+    public void shuffle(Random rand) {
+        x = rand.nextFloat();
+        y = rand.nextFloat();
     }
 }

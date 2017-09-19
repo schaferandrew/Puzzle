@@ -5,4 +5,5 @@
     <string name="solved_puzzle">Picture of the Solved Puzzle</string>
     <string name="hurrah">Hurrah!!!</string>
     <string name="completed_puzzle">You have completed the puzzle!</string>
+    <string name="shuffle">Shuffle</string>
 </resources>
