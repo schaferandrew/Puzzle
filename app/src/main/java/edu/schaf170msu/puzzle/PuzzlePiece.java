@@ -134,7 +134,7 @@ public class PuzzlePiece {
     /**
      * If we are within SNAP_DISTANCE of the correct
      * answer, snap to the correct answer exactly.
-     * @return
+     * @return status of snap
      */
     public boolean maybeSnap() {
         if(Math.abs(x - finalX) < SNAP_DISTANCE &&

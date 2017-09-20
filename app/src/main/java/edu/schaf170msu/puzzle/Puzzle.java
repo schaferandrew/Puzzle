@@ -165,12 +165,18 @@ public class Puzzle {
         canvas.save();
         canvas.translate(marginX, marginY);
         canvas.scale(scaleFactor, scaleFactor);
-        //canvas.drawBitmap(puzzleComplete, 0, 0, null);
-        canvas.restore();
-
-        for(PuzzlePiece piece : pieces) {
-            piece.draw(canvas, marginX, marginY, puzzleSize, scaleFactor);
+        if(isDone()){
+            canvas.drawBitmap(puzzleComplete, 0, 0, null);
+            canvas.restore();
         }
+        else{
+            canvas.restore();
+            for(PuzzlePiece piece : pieces) {
+                piece.draw(canvas, marginX, marginY, puzzleSize, scaleFactor);
+            }
+        }
+
+
     }
 
     /**
@@ -279,9 +285,11 @@ public class Puzzle {
                     // Create the dialog box and show it
                     AlertDialog alertDialog = builder.create();
                     alertDialog.show();
+
                 }
             }
             dragging = null;
+            view.invalidate();
             return true;
         }
 
@@ -348,12 +356,12 @@ public class Puzzle {
         int[] ids = bundle.getIntArray(IDS);
 
 
-        for (int i = 0; i < ids.length - 1; i++) {
+        for (int i = 0; i < (ids != null ? ids.length : 0) - 1; i++) {
 
             // Find the corresponding piece
             // We don't have to test if the piece is at i already,
             // since the loop below will fall out without it moving anything
-            for (int j = i + 1; j < ids.length; j++) {
+            for (int j = i + 1; j < (ids != null ? ids.length : 0); j++) {
                 if (ids[i] == pieces.get(j).getId()) {
                     // We found it
                     // Yah...
@@ -367,8 +375,8 @@ public class Puzzle {
 
         for (int i = 0; i < pieces.size(); i++) {
             PuzzlePiece piece = pieces.get(i);
-            piece.setX(locations[i * 2]);
-            piece.setY(locations[i * 2 + 1]);
+            piece.setX(locations != null ? locations[i * 2] : 0);
+            piece.setY(locations != null ? locations[i * 2 + 1] : 0);
         }
 
     }
